@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
 const url =
-  "mongodb+srv://anhminhbo:anhminh1234@minhcluster.jm6xt.mongodb.net/exam?retryWrites=true&w=majority";
+  "mongodb+srv://anhminhbo:anhminh1234@minhcluster.jm6xt.mongodb.net/crazy?retryWrites=true&w=majority";
 mongoose.connect(url);
 
 //define a "table" structure
@@ -14,11 +14,12 @@ var TaskSchema = new mongoose.Schema({
 
 //create a model Student ==> students (database collection)
 //Teacher => teachers , Course => courses
-var Task = mongoose.model("tasks", TaskSchema);
+var Task = mongoose.model("Khuong", TaskSchema);
 
 app.get("/tasks", function (req, res) {
   Task.find({}, function (err, tasks) {
     res.send(tasks);
+    console.log("test");
   });
 });
 
